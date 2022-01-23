@@ -41,8 +41,9 @@ public class StatsService {
 
     public int countSalesBelowAvgMonths(long[] sales) {
         int months = 0; // счетчик месяцев
+        long avg = calculateAverageSales(sales);
         for (long sale : sales) {
-            if (sale < calculateAverageSales(sales)) {
+            if (sale < avg) {
                 months++;
             }
         }
@@ -51,8 +52,9 @@ public class StatsService {
 
     public int countSalesAboveAvgMonths(long[] sales) {
         int months = 0; // счетчик месяцев
+        long avg = calculateAverageSales(sales);
         for (long sale : sales) {
-            if (sale > calculateAverageSales(sales)) {
+            if (sale > avg) {
                 months++;
             }
         }
